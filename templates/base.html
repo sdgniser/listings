@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/main.css' %}">
+
+    <title>
+      {% block title %}{% endblock %} | NISER Listings
+    </title>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <a href="{% url 'main:index' %}">Home</a>
+          </li>
+          <li>
+            <a href="{% url 'main:submit' %}">List an item</a>
+          </li>
+        </ul>
+      </nav>
+
+      <h1>NISER Listings</h1>
+      <p>One person's trash is another person's treasure.</p>
+
+      <form action="{% url 'main:search' %}" method="GET">
+        <input type="text" name="query" placeholder="Search">
+        <input type="submit" value="Search">
+      </form>
+    </header>
+
+    <main>
+      {% if messages %}
+      <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+
+      {% block content %}
+      {% endblock %}
+
+    </main>
+
+    <footer>
+      NISER Software Development Group
+    </footer>
+  </body>
+</html>
+

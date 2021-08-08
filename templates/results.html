@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Search Results
+{% endblock %}
+
+{% block content %}
+
+{% if listings %}
+
+<h2>Search results for "{{ search_string }}"</h2>
+
+<ul>
+  {% for item in listings %}
+  <li>
+    <p><a href="{% url 'main:listing' item.id %}">{{ item }}</a></p>
+    <p>Price: ₹ {{ item.price }}</p>
+    <p>{{ item.description }}</p>
+    <br><img src="{{ item.photo.url }}"><br>
+  </li>
+  {% endfor %}
+</ul>
+
+{% else %}
+<h2>Nothing found for "{{ search_string }}"</h2>
+
+{% endif %}
+
+{% endblock %}

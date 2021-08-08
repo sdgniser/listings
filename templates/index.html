@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+<h2>Find your treasure...</h2>
+
+{% if listings %}
+<ul>
+  {% for item in listings %}
+  <li>
+    <p><a href="{% url 'main:listing' item.id %}">{{ item }}</a></p>
+    <p>Price: ₹ {{ item.price }}</p>
+    <p>{{ item.description }}</p>
+    <br><img src="{{ item.photo.url }}"><br>
+  </li>
+  {% endfor %}
+</ul>
+
+{% else %}
+<p>There are no listings right now.</p>
+
+{% endif %}
+
+{% endblock %}
