@@ -28,7 +28,14 @@
       <p>One person's trash is another person's treasure.</p>
 
       <form action="{% url 'main:search' %}" method="GET">
-        <input type="text" name="query" placeholder="Search">
+        <input type="search" name="query" placeholder="Search">
+
+        <label for="search-sort">Sort by:</label>
+        <select name="sort_by" id="search-sort">
+          <option value="-rank">Relevance</option>
+          <option value="price">Price (Lowest First)</option>
+          <option value="-price">Price (Highest First)</option>
+        </select>
         <input type="submit" value="Search">
       </form>
     </header>

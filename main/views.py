@@ -1,4 +1,5 @@
 from django.contrib.postgres.search import SearchQuery, SearchVector, SearchRank
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView
@@ -23,16 +24,19 @@ def search(request):
         form = SearchForm(request.GET)
         if form.is_valid():
             search_string = form.cleaned_data['query']
+
             words = search_string.lower().split(' ')
-            vector = SearchVector('title', 'category', 'location', 'condition',
-                    'description', 'op')
+            vector = SearchVector('title', 'category__name', 'location__location', 
+                    'condition__condition', 'description', 'op')
 
             query = SearchQuery(words[0])
             for word in words[1:]:
                 query = query | SearchQuery(word)
 
+            sort_by = form.cleaned_data['sort_by']
+            sort_by = ('-rank',) if sort_by == '-rank' else ('-rank', sort_by)
             listings = Listing.objects.annotate(rank=SearchRank(vector,
-                query)).order_by('-rank')
+                query)).order_by(*sort_by)
 
             return render(request, 'results.html',
                     {'search_string': search_string, 'listings': listings})
