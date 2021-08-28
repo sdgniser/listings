@@ -1,0 +1,28 @@
+img {
+  max-width: 12rem;
+}
+
+
+.navbar {
+  background-color: #f5f5f5;
+  width: 100%;
+}
+
+.navbar li{
+  display: inline-flex;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.navbar a{
+  text-decoration: none;
+  color: #000000;
+  font-size: large;
+}
+
+.navbar a:hover{
+  text-decoration: none;
+  color: #000000;
+  transition: 0.2s;
+  transform: ;
+}
