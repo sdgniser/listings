@@ -1,7 +1,28 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}
-Home
+{% block title %}Home{% endblock %}
+
+{% block Search %}
+<div class="searchItem">
+	<img height="250px" src="{% static 'pics/niser_logo.png' %}">
+	<h1>NISER Listings</h1>
+	<p>One person's trash is another person's treasure.</p>
+
+	<form action="{% url 'main:search' %}" method="GET">
+		<input class="formCustom" type="search" name="query" placeholder="Search">
+		<input type="submit" value="Search">
+		<br>
+		<p>Sort by:
+			  <input type="radio" id="Relevance" name="sort_by" value="-rank" checked="checked">
+			  <label for="Relevance">Relevance</label>
+			  <input type="radio" id="priceLowFirst" name="sort_by" value="price">
+			  <label for="priceLowFirst">Price (Lowest First)</label>
+			  <input type="radio" id="priceHighFirst" name="sort_by" value="-price">
+			  <label for="priceHighFirst">Price (Highest First)</label></p>
+
+	</form>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -9,16 +30,23 @@ Home
 <h2>Find your treasure...</h2>
 
 {% if listings %}
-<ul>
-  {% for item in listings %}
-  <li>
-    <p><a href="{% url 'main:listing' item.id %}">{{ item }}</a></p>
-    <p>Price: ₹ {{ item.price }}</p>
-    <p>{{ item.description }}</p>
-    <br><img src="{{ item.photo.url }}"><br>
-  </li>
-  {% endfor %}
-</ul>
+<div class="container my-4">
+	<div class="row row-cols-1 row-cols-md-3 g-4">
+		{% for item in listings %}
+		<div class="col">
+			<a href="{% url 'main:listing' item.id %}" style="text-decoration: none; color: #340c5a;">
+				<div class="card">
+					<img src="{{ item.photo.url }}" class="card-img-top">
+					<div class="card-body">
+						<h5 class="card-title">{{ item }}</h5>
+						<p class="card-text">Price: ₹ {{ item.price }}</p>
+						<p class="card-text">{{ item.description }}</p>
+					</div>
+			</a>
+		</div>
+	</div>
+	{% endfor %}
+</div>
 
 {% else %}
 <p>There are no listings right now.</p>
