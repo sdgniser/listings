@@ -42,10 +42,12 @@
 						<p class="card-text">Price: ₹ {{ item.price }}</p>
 						<p class="card-text">{{ item.description }}</p>
 					</div>
-			</a>
+
+				</a>
+			</div>
 		</div>
+		{% endfor %}
 	</div>
-	{% endfor %}
 </div>
 
 {% else %}
