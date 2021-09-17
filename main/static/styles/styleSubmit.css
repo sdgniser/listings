@@ -52,10 +52,16 @@ input[type=file]:hover{
 .sell-form{
 	width: 50%;
 	margin: auto;
-	padding: 1%;
+	padding: 2%;
 	border-radius: 20px;
 	background-color: white;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 900px) {
+	.sell-form{
+		width: 75%;
+	}       
 }
 
 @media (max-width: 500px) {
