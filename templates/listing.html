@@ -8,35 +8,48 @@
 <div class="listingDetails">
 	<aside class="side left">
 		{% if listing.photo %}
-		<br><img src="{{ listing.photo.url }}" width="100%"><br>
+		<br><img class="sticky-top" src="{{ listing.photo.url }}" width="100%"><br>
 		{% else %}
 		<p>[image not uploaded]</p>
 		{% endif %}
-		<dt>Description</dt>
-		<dd>{{ listing.description }}</dd>
 	</aside>
 	<aside class="side right">
-		<dl>
-			<h1>{{ listing }}</h1>
+		<h1>{{ listing }}</h1>
+		<table>
+			<tr>
+				<th>Price:</th>
+				<td> ₹ {{ listing.price }}</td>
+			</tr>
 
-			<dt>Price</dt>
-			<dd>₹ {{ listing.price }}</dd>
+			<tr>
+				<th>Condition:&emsp;</th>
+				<td>{{ listing.condition }}</td>
+			</tr>
 
-			<dt>Condition</dt>
-			<dd>{{ listing.condition }}</dd>
+			<tr>
+				<th>Location:&emsp;</th>
+				<td>{{ listing.location }}</td>
+			</tr>
 
-			<dt>Location</dt>
-			<dd>{{ listing.location }}</dd>
+			<tr>
+				<th>Listed by:&emsp;</th>
+				<td>{{ listing.op }}</td>
+			</tr>
 
-			<dt>Listed by</dt>
-			<dd>{{ listing.op }}</dd>
+			<tr>
+				<th>Email:&emsp;</th>
+				<td><a href="mailto:{{ listing.email }}">{{ listing.email }}</a></td>
+			</tr>
 
-			<dt>Email</dt>
-			<dd><a href="mailto:{{ listing.email }}">{{ listing.email }}</a></dd>
-
-			<dt>Phone</dt>
-			<dd><a href="tel:{{ listing.phone }}">{{ listing.phone }}</a></dd>
-		</dl>
+			<tr>
+				<th>Phone:&emsp;</th>
+				<td><a href="tel:{{ listing.phone }}">{{ listing.phone }}</a></td>
+			</tr>
+		</table>
+		<br>
+		<strong>Description:&ensp;</strong>
+		{{ listing.description }}
+		<br>
 	</aside>
 </div>
 {% endblock %}
