@@ -1,16 +1,33 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles/styleSubmit.css' %}">
+
+{% endblock head %}
 
 {% block title %}Submit a Listing{% endblock %}
 
+
+
+
 {% block content %}
+<div class="sell-form">
+    <h2>Submit a Listing</h2>
 
-<h2>Submit a Listing</h2>
+    <form method="post" enctype="multipart/form-data">{% csrf_token %}
+        {% for field in form %}
+        <div class="mb-3">
+            {{ field.errors }}
+            <div class="form-label">{{ field.label }}</div>
 
-<form method="post" enctype="multipart/form-data">{% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit" value="Submit">
-</form>
+            {{ field }}
 
+            {% if field.help_text %}
+            <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+        <div style="text-align: center"><input type="submit" class="btn btn-primary" value="Submit"></div>
+    </form>
+</div>
 {% endblock %}
-

@@ -4,7 +4,7 @@
 {% block title %}Home{% endblock %}
 
 {% block Search %}
-<div class="searchItem">
+<div class="searchItem text-center">
 	<img height="250px" src="{% static 'pics/niser_logo.png' %}">
 	<h1>NISER Listings</h1>
 	<p>One person's trash is another person's treasure.</p>
@@ -13,13 +13,13 @@
 		<input class="formCustom" type="search" name="query" placeholder="Search">
 		<input type="submit" value="Search">
 		<br>
-		<p>Sort by:
+		<p><br>Sort by:<br>
 			  <input type="radio" id="Relevance" name="sort_by" value="-rank" checked="checked">
-			  <label for="Relevance">Relevance</label>
+			  <label for="Relevance">Relevance</label><br>
 			  <input type="radio" id="priceLowFirst" name="sort_by" value="price">
-			  <label for="priceLowFirst">Price (Lowest First)</label>
+			  <label for="priceLowFirst">Price Increasing</label><br>
 			  <input type="radio" id="priceHighFirst" name="sort_by" value="-price">
-			  <label for="priceHighFirst">Price (Highest First)</label></p>
+			  <label for="priceHighFirst">Price Decreasing</label></p>
 
 	</form>
 </div>
@@ -27,10 +27,10 @@
 
 {% block content %}
 
-<h2>Find your treasure...</h2>
+<h2 class="text-center my-xxl-5">Find your treasure...</h2>
 
 {% if listings %}
-<div class="container my-4">
+<div class="container my-xxl-5">
 	<div class="row row-cols-1 row-cols-md-3 g-4">
 		{% for item in listings %}
 		<div class="col">

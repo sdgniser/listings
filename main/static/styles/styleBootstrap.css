@@ -30,8 +30,7 @@
 #topLogo {
 	width: 100px;
 	transition: 0.2s; /* Add a transition effect (when scrolling - and font size is decreased) */
-  }
-
+}
 /* end of small details */
 
 
@@ -2097,14 +2096,15 @@ progress{
 
 @media (prefers-reduced-motion:reduce){
 	.form-control{
-		transition:none
+		transition:none;
+		
 	}
 }
 
 .form-control[type=file]{
 	overflow:hidden
 }
-
+::-webkit-file-upload-button
 .form-control[type=file]:not(:disabled):not([readonly]){
 	cursor:pointer
 }

@@ -103,7 +103,7 @@ background-clip: border-box;
 	font-weight:400;
 	line-height:1.5;
 	color:#212529;
-	background-color:#fff;
+	background-color:rgb(255, 255, 255);
 	background-clip:padding-box;
 	border:1px solid #ced4da;
 	-webkit-appearance:none;
@@ -114,17 +114,32 @@ background-clip: border-box;
 }
 
 
+
 .listingDetails {
-	background-color: white;
-	padding-left: 5%;
-	padding-right: 5%;
+	display:block;
 }
 
-.leftSide {
+.side {
+	width: 50%;
+	height: 100%;
+    float: left;
+    padding: 20px;
+}
+
+.left {
 	float: left;
-	height:max-content;
 }
 
-.leftSide img:hover {
-	
+.right {
+	margin-top: 5%;
+	float: right;
+}
+
+@media (max-width:1000px){
+	.side {
+		width: 100%;
+	}
+	.right {
+		margin-top: 0px;
+	}
 }
