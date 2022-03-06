@@ -143,3 +143,19 @@ background-clip: border-box;
 		margin-top: 0px;
 	}
 }
+
+
+/* Done Later */
+
+.custom-card-img-top{
+	width: 100%;
+	height: 30vh;
+	background-position: center;
+	background-size: cover;
+}
+
+.justify{
+	text-align: justify;
+	text-justify: inter-word;
+}
+

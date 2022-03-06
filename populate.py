@@ -11,9 +11,11 @@ from main.models import Condition, Location, ListingType
 conditions = ['Like New', 'Very Good', 'Good', 'Acceptable']
 
 if not Condition.objects.all():
+    print("Adding Conditions in the database:")
     for condition in conditions:
-        c = Condition(condition = condition)
-        c.save()
+        Condition(condition = condition)c.save()
+        print(f"\tAdded {condition}")
+        
 else:
     print('There are already some Condition objects in the database. Skipping...')
 
@@ -30,8 +32,10 @@ locations = [
 ]
 
 if not Location.objects.all():
+    print("Adding Locations in the database:")
     for location in locations:
         Location(location = location).save()
+        print(f"\tAdded {location}")
 else:
     print('There are already some Location objects in the database. Skipping...')
 
@@ -50,8 +54,10 @@ categories = [
 ]
 
 if not ListingType.objects.all():
+    print("Adding ListingTypes in the database:")
     for category in categories:
         ListingType(name = category).save()
+        print(f"\tAdded {category}")
 else:
     print('There are already some ListingType objects in the database. Skipping...')
 

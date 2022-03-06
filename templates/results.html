@@ -17,11 +17,16 @@ Search Results
     <div class="col">
       <a href="{% url 'main:listing' item.id %}" style="text-decoration: none; color: #340c5a;">
         <div class="card">
-          <img src="{{ item.photo.url }}" class="card-img-top">
+          
+						<div class="custom-card-img-top" style="background-image: url('{{ item.photo.url }}')"></div>
           <div class="card-body">
             <h5 class="card-title">{{ item }}</h5>
             <p class="card-text">Price: ₹ {{ item.price }}</p>
+            {% if item.description|length > 400 %}
+            <p class="card-text justify">{{ item.description|truncatechars:400 }} <strong>&ltcontd.&gt</strong></p>
+            {% else %}
             <p class="card-text">{{ item.description }}</p>
+            {% endif %}
           </div>
       </a>
     </div>
