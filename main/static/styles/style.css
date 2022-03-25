@@ -1,0 +1,161 @@
+.searchItem {
+  background-color: #fff;
+  text-align: center;
+  padding: 100px;
+}
+
+/* START ALL ABOUT FOOTER
+(This section continues untill you see "END ALL ABOUT FOOTER")*/
+
+#footer {
+  float:left;
+background-image: linear-gradient(60deg, #29323c 0%, rgb(72, 72, 156) 100%);
+  width: 100%;
+}
+#footer .footer {
+text-align: center;
+min-height: 200px;
+flex-direction: column;
+padding-top: 50px;
+padding-bottom: 10px;
+}
+#footer h2 {
+color: white;
+font-weight: 500;
+font-size: 1.8rem;
+letter-spacing: .1rem;
+margin-top: 10px;
+margin-bottom: 10px;
+}
+#footer h3{
+color: white;
+text-align: center;
+}
+#footer h4{
+color: white;
+text-align: center;
+}
+#footer .social-icon {
+display: flex;
+margin-bottom: 30px;
+}
+#footer .social-item {
+height: 50px;
+width: 50px;
+margin: 0 5px;
+}
+#footer .social-item img {
+filter: grayscale(1);
+transition: .3s ease filter;
+}
+#footer .social-item:hover img {
+filter: grayscale(0);
+}
+#footer p {
+color: white;
+font-size: 1.3rem;
+}
+
+#footer img {
+height: 100px;
+}
+
+#footer .social{
+font-size: 3rem;
+text-align: center;
+color: white;
+margin: 20px;
+}
+
+#footer .git:hover{
+color: #f05133;
+}
+
+#footer .mail:hover{
+color: rgb(0, 0, 0);
+}
+
+#footer .facebook:hover{
+color: #3a559f;
+}
+
+#footer .insta:hover{
+background-image: linear-gradient(45deg, #ffee00 0%, #ff00ea 100%);
+background-clip: border-box;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+/* END ALL ABOUT FOOTER */
+
+
+.all {
+  background-color: white;
+  margin: 5%;
+}
+
+.formCustom{
+    margin-left: auto;
+    margin-right: auto;
+	width:250px;
+	padding:.375rem .75rem;
+	font-size:1rem;
+	font-weight:400;
+	line-height:1.5;
+	color:#212529;
+	background-color:rgb(255, 255, 255);
+	background-clip:padding-box;
+	border:1px solid #ced4da;
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	appearance:none;
+	border-radius:.25rem;
+	transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out
+}
+
+
+
+.listingDetails {
+	display:block;
+}
+
+.side {
+	width: 50%;
+	height: 100%;
+    float: left;
+    padding: 20px;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	margin-top: 5%;
+	float: right;
+}
+
+@media (max-width:1000px){
+	.side {
+		width: 100%;
+	}
+	.right {
+		margin-top: 0px;
+	}
+}
+
+
+/* Done Later */
+
+.custom-card-img-top{
+	width: 100%;
+	height: 30vh;
+	background-position: center;
+	background-size: cover;
+}
+
+.justify{
+	text-align: justify;
+	text-justify: inter-word;
+}
+

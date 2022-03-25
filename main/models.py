@@ -24,13 +24,10 @@ class ListingType(models.Model):
 
 class Listing(models.Model):
     title = models.CharField(max_length=200, verbose_name = 'Listing Title')
-    category = models.ForeignKey(ListingType, verbose_name = 'Category',
-                                 on_delete = models.CASCADE)
+    category = models.ForeignKey(ListingType, on_delete = models.CASCADE, verbose_name = 'Category')
     price = models.IntegerField(verbose_name = 'Price (in Rupees)')
-    location = models.ForeignKey(Location, on_delete = models.CASCADE, 
-                                 verbose_name = 'Location')
-    condition = models.ForeignKey(Condition, on_delete = models.CASCADE, 
-                                  verbose_name = 'Item Condition')
+    location = models.ForeignKey(Location, on_delete = models.CASCADE, verbose_name = 'Location')
+    condition = models.ForeignKey(Condition, on_delete = models.CASCADE, verbose_name = 'Item Condition')
     description = models.TextField(verbose_name = 'Description')
     photo = models.ImageField(upload_to='images')
 

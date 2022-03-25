@@ -1,28 +1,64 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}
-Home
+{% block title %}Home{% endblock %}
+
+{% block Search %}
+	<div class="searchItem text-center">
+		<img height="250px" src="{% static 'pics/niser_logo.png' %}">
+		<h1>NISER Listings</h1>
+		<p>One person's trash is another person's treasure.</p>
+
+		<form action="{% url 'main:search' %}" method="GET">
+			<input class="formCustom" type="search" name="query" placeholder="Search">
+			<input type="submit" value="Search" class="btn btn-primary mb-2">
+			<br>
+			<p><br>Sort by:<br>
+				<input type="radio" id="Relevance" name="sort_by" value="-rank" checked="checked">
+				<label for="Relevance">Relevance</label><br>
+				<input type="radio" id="priceLowFirst" name="sort_by" value="price">
+				<label for="priceLowFirst">Price Increasing</label><br>
+				<input type="radio" id="priceHighFirst" name="sort_by" value="-price">
+				<label for="priceHighFirst">Price Decreasing</label></p>
+
+		</form>
+	</div>
 {% endblock %}
 
 {% block content %}
 
-<h2>Find your treasure...</h2>
+	<h2 class="text-center my-xxl-5">Find your treasure...</h2>
 
-{% if listings %}
-<ul>
-  {% for item in listings %}
-  <li>
-    <p><a href="{% url 'main:listing' item.id %}">{{ item }}</a></p>
-    <p>Price: ₹ {{ item.price }}</p>
-    <p>{{ item.description }}</p>
-    <br><img src="{{ item.photo.url }}"><br>
-  </li>
-  {% endfor %}
-</ul>
+	{% if listings %}
+	<div class="container my-xxl-5">
+		<div class="row row-cols-1 row-cols-md-3 g-4">
+			{% for item in listings %}
+			<div class="col">
+				<a href="{% url 'main:listing' item.id %}" style="text-decoration: none; color: #340c5a;">
+					<div class="card">
+						<div class="custom-card-img-top" style="background-image: url('{{ item.photo.url }}')"></div>
+						
+						{% comment %} <img src="{{ item.photo.url }}" class="card-img-top custom-card-img-top"> {% endcomment %}
+						<div class="card-body">
+							<h5 class="card-title">{{ item }}</h5>
+							<p class="card-text">Price: ₹ {{ item.price }}</p>
+							{% if item.description|length > 400 %}
+							<p class="card-text justify">{{ item.description|truncatechars:400 }} <strong>&ltcontd.&gt</strong></p>
+							{% else %}
+							<p class="card-text">{{ item.description }}</p>
+							{% endif %}
+						</div>
 
-{% else %}
-<p>There are no listings right now.</p>
+					</a>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
 
-{% endif %}
+	{% else %}
+	<p>There are no listings right now.</p>
+
+	{% endif %}
 
 {% endblock %}

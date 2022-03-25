@@ -9,6 +9,15 @@ from .models import *
 
 def index(request):
     listings = Listing.objects.filter(sold = False)
+    # print("\n\n")
+    # print(f"listings:   {listings}")
+    # print(f"type(listings):   {type(listings)}")
+    # for listing in listings:
+    #     print("\n")
+    #     print(f"\tlisting:   {listing}")
+    #     print(f"\ttype(listing):   {type(listing)}")
+    #     print("\n")
+    # print("\n\n")
     return render(request, 'index.html', {'listings': listings})
 
 class SubmitView(CreateView):

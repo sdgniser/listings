@@ -1,0 +1,75 @@
+.mb-3 input,
+textarea,
+select {
+	display: block;
+	width: 100%;
+	padding: .375rem .75rem;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #212529;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid #ced4da;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border-radius: .25rem;
+	transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
+}
+
+input[type=file] {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: stretch;
+	width: 100%;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+input[type=file]:hover{
+	background:rgb(245, 245, 245);
+}
+
+::-webkit-file-upload-button {
+	padding:.375rem .75rem;
+	margin:-.375rem -.75rem;
+	-webkit-margin-end:.75rem;
+	margin-inline-end:.75rem;
+	color:#212529;
+	background:rgb(231, 231, 231);
+	pointer-events:none;
+	border-color:inherit;
+	border-style:solid;
+	border-width:0;
+	border-inline-end-width:1px;
+	border-radius:0;
+	-webkit-transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+	transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out    
+}
+
+.sell-form{
+	width: 50%;
+	margin: auto;
+	padding: 2%;
+	border-radius: 20px;
+	background-color: white;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 900px) {
+	.sell-form{
+		width: 75%;
+	}       
+}
+
+@media (max-width: 500px) {
+	.sell-form{
+		width: 100%;
+	}       
+}
+
+body, .all{
+	background-color: rgb(165, 255, 123);
+}
