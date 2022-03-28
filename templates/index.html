@@ -20,8 +20,12 @@
 				<label for="priceLowFirst">Price Increasing</label><br>
 				<input type="radio" id="priceHighFirst" name="sort_by" value="-price">
 				<label for="priceHighFirst">Price Decreasing</label></p>
-
 		</form>
+		<a href="{% url 'main:submit' %}">
+			<button type="button" class="btn btn-primary m-3" style="border-radius: 15px;">
+				<h1>Sell</h1>
+			</button>
+		</a>
 	</div>
 {% endblock %}
 
