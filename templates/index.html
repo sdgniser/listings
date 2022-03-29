@@ -7,7 +7,7 @@
 	<div class="searchItem text-center">
 		<img height="250px" src="{% static 'pics/niser_logo.png' %}">
 		<h1>NISER Listings</h1>
-		<p>One person's trash is another person's treasure.</p>
+        <p>One person's trash is another person's treasure.</p>
 
 		<form action="{% url 'main:search' %}" method="GET">
 			<input class="formCustom" type="search" name="query" placeholder="Search">
@@ -20,12 +20,16 @@
 				<label for="priceLowFirst">Price Increasing</label><br>
 				<input type="radio" id="priceHighFirst" name="sort_by" value="-price">
 				<label for="priceHighFirst">Price Decreasing</label></p>
+
 		</form>
 		<a href="{% url 'main:submit' %}">
 			<button type="button" class="btn btn-primary m-3" style="border-radius: 15px;">
 				<h1>Sell</h1>
 			</button>
 		</a>
+
+		</form>
+
 	</div>
 {% endblock %}
 
